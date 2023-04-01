@@ -9,6 +9,7 @@ public class ForLoopExample {
 	int enteredPIN;
 	int balance=2000;
 	int withdrawAmount;
+	int failedattempts = 0;
     
 	Scanner sc = new Scanner(System.in);
 
@@ -28,14 +29,22 @@ public class ForLoopExample {
 				withdrawAmount = sc.nextInt();
 				 if (withdrawAmount <= balance) {
 	                    System.out.println("Cash withdrawn in amount of: " + withdrawAmount);
-	                    
+	                   
 	                    break;
-	                } else {
-	                    System.out.println("Not enough balance");
+      } 
+				 else {
+	                    System.out.println("Not enough balance, please enter a diffrent amount");
 	                }
-	            } else {
+      } 
+			else {
 	                System.out.println("Entered PIN is incorrect");
-	            
-	            }}}}	
+	                failedattempts++;
+	  }
+			if (failedattempts>=3){
+				 System.out.println("account is blocked");
+				 break;
+	            }
+			
+			}}}	
 
 
